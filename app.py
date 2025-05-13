@@ -5,11 +5,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 # Remplace ceci par ta clé API personnelle : https://makersuite.google.com/app/apikey
-GOOGLE_API_KEY = "AIzaSyBCQdqFdHAms1u6h3YRfh9rZKh1gP4-y-Q"  # <- Mets ta vraie clé ici
+GOOGLE_API_KEY = "AIzaSyD1IKvAyU_Dy5TrDMJ2LaOOYjBEA04v7gc"  # <- Mets ta vraie clé ici
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Utilise un modèle texte compatible avec generate_content()
-model = genai.GenerativeModel("models/gemini-1.5-pro-latest")
+model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 app = Flask(__name__)
 CORS(app)
@@ -40,4 +40,4 @@ def generate_words():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5100,debug=True)
